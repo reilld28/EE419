@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+html, body {
+  height:100%;
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 20px;
+}
+
+html {
+  background: url('https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg') fixed;
+  background-size: 100%;
+}
+
+div {
+  overflow: hidden;
+}
+
+a {
+  color: #0645AD;
+  text-decoration: underline;
+}
+
+p {
+  font-size: 15px;
+  padding: 0 5%;
+}
+
+h1 {
+	font-size: 40px;
+	color: #FF8C00;
+}
+#header {
+  background: rgb(255, 255, 255);
+  padding: 1%;
+  overflow: hidden;
+  height: 50px;
+}
+#header img {
+  float: left;
+  box-shadow: none;
+  max-width: 100%;
+  max-height: 100%;
+}
+#header ul {
+  list-style: none;
+  float: left;
+  padding-left: 10px;
+  margin-top: 15px;
+}
+#header ul li {
+  float: left;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.fullscreen {
+  height: 95%;
+  position: relative;
+}
+.fullscreen .header {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.white {
+  background: #eeeeec;
+  padding: 0 5%;
+}
+
+.semitrans {
+  background: rgba(255, 255, 255, .75);
+  padding: 0 5%;
+
+}
+
+.insidetext {
+  color: #000;
+}
+
+.dark {
+  color: #eeeeec;
+  background: #010105;
+  padding: 0 5%;
+}
+
+.nopadding {
+  padding: 0;
+}

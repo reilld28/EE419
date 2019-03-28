@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/Example.css">
+<meta charset="UTF-8">
+<title>Recipe Storage System</title>
+</head>
+<body>
+
+<div class="fullscreen nopadding"> <!--This div is for no whole page-->
+  <div id="header">
+    <img src="http://stirfriedfables.com/wp-content/uploads/2015/05/stir-fried-fables-logo-250x250.png" />
+    <ul>
+      <li>Home</li>
+      <li>Login</li>
+      <li>Register</li>
+      <li>Create Recipe</li>
+      <li>Browse Recipes</li>
+    </ul>
+  </div>
+  <div class="header"> <!-- This is for header  -->
+    <h1 style="color:white;">Family Recipes!</h1>
+  </div>
+</div>
+
+
+<div class="white"> <!-- This is for next section -->
+  <h1 >Welcome! </h1>
+  <p> Welcome to Family Recipes! Use our website to store your own sacred recipes passed down by generations. You can easily look up recipes you have created by name or by ingredient. Click on the links above to register and get started!!!</p>
+</div>
+
+<div class="semitrans"> <!-- This is for next section -->
+  <!--  <form method="post" 
+    action="./JDBCServlet" 
+    name="ourform"> Changed action to Servlet to grab data --> 
+  
+  <h1>Register/Login</h1>
+  
+  <h3>Login with email address and password</h3>
+  <div class="insidetext" >
+  <p>Enter email address: 
+  <input name="emailaddress"></p>
+  <p>Enter password: 
+  <input name="password" type='password'></p>
+  
+  </div>
+  
+  
+  <h3>Register your name and email address</h3>
+  <div class="insidetext" >
+  <p>Please enter your full name: 
+  <input name="name" value="eg Mary Baker" type='text'></p>
+  <p>Please enter your email address: 
+  <input name="email" value ="eg marybaker@gmail.com" type='text'></p>
+  <p>Please enter your password: 
+  <input name="password" type='password'></p>
+  </div>
+  <!--  <input type="submit" value="Submit Query"> This is where I submit form -->
+  <!--  </form> End of form-->
+</div>
+
+<div class = "white" > 
+  <h1>Create Recipe</h1>
+  <p>Type into the text box below to list the ingredients for your recipe. </p>
+  <!-- DO I NEED TO MAKE ANOTHER FORM? OR CAN I USE THE SAME ONE -->
+  <p>Enter recipe name: <input type="text" name="recipename"></p>
+  <p>Enter list of ingredients name:<input type="text" name="ingredients" style="height:50px;width:200px"></p>
+  
+</div>
+
+<div class = "semitrans" > 
+  <h1>Browse Recipe</h1>
+  <p>Search Recipes below by typing in the name of recipe or ingredient used!</p>
+</div>
+
+<div class="dark">
+  <p>Fill something cool in here </p>
+</div>
+
+
+</body>
+</html>
