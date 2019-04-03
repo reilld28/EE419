@@ -8,7 +8,7 @@ public class UserBean {
     public boolean valid;
 	
 	
-    public String getmame() {
+    public String getname() {
        return name;
 	}
 

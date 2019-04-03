@@ -13,12 +13,11 @@ public class LoginServlet extends HttpServlet {
     ResultSet rs = null;
 	UserBean user = new UserBean();
 
-    /*PreparedStatement st = null;*/
 	String JDBCUrl = "jdbc:oracle:thin:@ee417.c7clh2c6565n.eu-west-1.rds.amazonaws.com:1521:EE417";
     String username = "ee_user";
     String password = "ee_pass";
   		
- 	public void doGet(HttpServletRequest request, HttpServletResponse response)
+ 	public void doPost(HttpServletRequest request, HttpServletResponse response)
      	throws ServletException, IOException {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
@@ -30,8 +29,9 @@ public class LoginServlet extends HttpServlet {
              		System.out.println("\nConnecting to the SSD Database......");
              		Class.forName("oracle.jdbc.driver.OracleDriver");
              		con = DriverManager.getConnection(JDBCUrl, username, password);
-          	        user.setemail(request.getParameter("email"));
-          	        user.setPassword(request.getParameter("password"));
+          	        user.setemail(request.getParameter("emailaddress"));
+          	        user.setPassword(request.getParameter("emailpassword"));
+             		
          	}
          	catch (Exception e) {
              		out.println("An error has occurred during the connection phase! Did you upload your Oracle Drivers?"); 
@@ -41,25 +41,29 @@ public class LoginServlet extends HttpServlet {
 	     		out.println("Connection Successful..... checking login details....");
       	  
       	        
-      	        String email = request.getParameter("email");
-      	        String loginpassword = request.getParameter("password");
-      	        
+      	        String email = request.getParameter("emailaddress");
+      	        String loginpassword = request.getParameter("emailpassword");
+   
+	     		/*String email = "deirdrereilly@hotmail.com";
+	     		String loginpassword = "password";*/
       	        
       	        String searchQuery ="select * from DRusers where email='" + email + "' AND password='" + loginpassword+ "'";
+	     		/*String searchQuery = "select * from DRusers where email = 'deirdrereilly@hotmail.com' AND password = 'password'";*/
       	        
       	        stmt = con.createStatement();  
       	     	rs = stmt.executeQuery(searchQuery);
 	     		boolean more = rs.next();
+	     		System.out.println("<BR> THis is my select statement" + searchQuery );
 	     		
 	     		if(!more) {
-	      	    out.println("<BR>Please check your login details or register for new details");  //error page 
+	      	    out.println("<BR>Error showing up in first try statement");  //error page 
 	      	    user.setValid(false);
 	     			
 	     		}
 	     		
 	     		else if(more) {
 	     			String emailaccount = rs.getString("email");
-	     			String emailpassword = rs.getString("emailpassword");
+	     			String emailpassword = rs.getString("password");
 	     			user.setemail(emailaccount);
 	     			user.setPassword(emailpassword);
 	     			user.setValid(true);
@@ -73,7 +77,7 @@ public class LoginServlet extends HttpServlet {
       	      }
       	 	        
       	      else {
-      	    	out.println("<BR>Please check your login details or register for new details");  //error page 
+      	    	out.println("<BR>User details not valid");  //error page 
       	 } 
 	     				
 	 	}
