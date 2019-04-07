@@ -4,6 +4,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.sql.*;
 import oracle.jdbc.driver.*;
+import java.util.Random;
+
+
 
 @WebServlet("/Register")
 public class RegisterServlet extends HttpServlet {
@@ -16,13 +19,13 @@ public class RegisterServlet extends HttpServlet {
     String password = "ee_pass";
 	UserBean user = new UserBean();
 
-  		
+  	
  	public void doPost(HttpServletRequest request, HttpServletResponse response)
      	throws ServletException, IOException {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY><H1>Database Values</H1>");
+                out.println("<BODY><H1>Registering new User....</H1>");
 
 		// Now we add our database code!
 		try {
@@ -43,8 +46,11 @@ public class RegisterServlet extends HttpServlet {
       	     	stmt = con.createStatement();
 	     		PreparedStatement st = con.prepareStatement("INSERT INTO DRusers (accountid,name,email,password) VALUES (?,?,?,?)");
       
+	     		Random random = new Random(System.nanoTime());
+	     		int id = random.nextInt(1000);
+	     		
 	     		st.clearParameters();
-	     		st.setInt(1,10); 
+	     		st.setInt(1,id); 
 	     		st.setString(2,request.getParameter("name"));
 	     		st.setString(3,request.getParameter("email")); 
 	     		st.setString(4,request.getParameter("password"));
@@ -54,7 +60,13 @@ public class RegisterServlet extends HttpServlet {
 	     		String password = request.getParameter("password");
 	     		
 	     		System.out.println("\n The name is " + name + " the email is " + email + "the password is " + password);
-	     		st.executeUpdate();
+	     		int row = st.executeUpdate();
+	     		if(row==1) {
+	     			out.println("Registration Successful!");
+	     		}
+	     		else {
+	     			out.println("Please check your details and try again");
+	     		}
 	     				
 	 	}
         catch (Exception e) {

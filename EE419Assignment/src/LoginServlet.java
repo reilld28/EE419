@@ -22,11 +22,11 @@ public class LoginServlet extends HttpServlet {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY><H1>Database Values</H1>");
+                out.println("<BODY><H1>Checking Login Details....</H1>");
 
 		// Now we add our database code!
 		try {
-             		System.out.println("\nConnecting to the SSD Database......");
+             		/*System.out.println("\nConnecting to the SSD Database......");*/
              		Class.forName("oracle.jdbc.driver.OracleDriver");
              		con = DriverManager.getConnection(JDBCUrl, username, password);
           	        user.setemail(request.getParameter("emailaddress"));
@@ -43,12 +43,7 @@ public class LoginServlet extends HttpServlet {
       	        
       	        String email = request.getParameter("emailaddress");
       	        String loginpassword = request.getParameter("emailpassword");
-   
-	     		/*String email = "deirdrereilly@hotmail.com";
-	     		String loginpassword = "password";*/
-      	        
       	        String searchQuery ="select * from DRusers where email='" + email + "' AND password='" + loginpassword+ "'";
-	     		/*String searchQuery = "select * from DRusers where email = 'deirdrereilly@hotmail.com' AND password = 'password'";*/
       	        
       	        stmt = con.createStatement();  
       	     	rs = stmt.executeQuery(searchQuery);
@@ -56,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 	     		System.out.println("<BR> THis is my select statement" + searchQuery );
 	     		
 	     		if(!more) {
-	      	    out.println("<BR>Error showing up in first try statement");  //error page 
+	      	    out.println("<BR>Error!");  //error page 
 	      	    user.setValid(false);
 	     			
 	     		}
@@ -77,7 +72,7 @@ public class LoginServlet extends HttpServlet {
       	      }
       	 	        
       	      else {
-      	    	out.println("<BR>User details not valid");  //error page 
+      	    	out.println("<BR>User details not valid. Please try again");  //error page 
       	 } 
 	     				
 	 	}

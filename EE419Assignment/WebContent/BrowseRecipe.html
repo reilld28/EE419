@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="fullscreen nopadding"> <!--This div is for no whole page-->
+<div class="fullscreen nopadding"> <!--This div is for whole page-->
   <div id="header">
     <img src="http://stirfriedfables.com/wp-content/uploads/2015/05/stir-fried-fables-logo-250x250.png" />
     <ul>
@@ -18,26 +18,18 @@
       <li>Browse Recipes</li>
     </ul>
   </div>
-
-<div class="semitrans"> <!-- This is for next section -->
-  <form method="post" action="Login" name="loginform"> 
-  
-  <h1>Login</h1>
-  
+<div class = "semitrans" > 
+<form method="get" action="./Browse">
+  <h1>Type in a keyword and pull up specific recipe OR... <BR> Click to browse all recipes!</h1>
   <div id="insidetext" >
-  <p>Login with email address and password</p>
-  <label>Enter email address: 
-  <input name="emailaddress" type = "text" ></label>
-  <br>
-  <label>Enter password: 
-  <input name="emailpassword" type="password"></label>
-   
+  <p>Enter keyword: 
+  <input name="keyword" type='text'></p>
+  <input type="submit" name = "actoin" value= "Search">
+  <input type="submit" name = "action" value= "All Recipes">
   </div>
-  <input type="submit" value="Login!" >
   </form>
-</div>
-</div>
-
-
+ </div>	
+ </div>
+ 
 </body>
 </html>

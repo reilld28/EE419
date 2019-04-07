@@ -2,8 +2,9 @@
 
 html, body {
   height:100%;
+  width: 100%;
   font-family: 'Signika Negative', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 html {
@@ -12,7 +13,7 @@ html {
 }
 
 div {
-  overflow: hidden;
+  overflow: scroll;
 }
 
 a {
@@ -22,13 +23,50 @@ a {
 
 p {
   font-size: 15px;
-  padding: 0 5%;
 }
 
 h1 {
-	font-size: 40px;
+	font-size: 25px;
 	color: #FF8C00;
 }
+
+input[type=submit]{
+	background-color: #4CAF50;
+  	border: none;
+  	color: white;
+  	padding: 10px 20px;
+  	text-decoration: none;
+  	margin: 10px 20%;
+  	cursor: pointer;
+  	width: 50%;
+  	align:center;
+  	
+}
+
+
+#insidetext input[type=text]{
+	width: 100%;
+  	align:center;
+  	margin: 0px 0px 10px 0px;
+}
+
+#insidetext input[type=number]{
+	width: 100%;
+  	align:center;
+  	margin: 0px 0px 10px 0px;
+}
+
+#insidetext input[type=password]{
+	width: 100%;
+  	align:center;
+  	margin: 0px 0px 10px 0px;
+}
+
+#insidetext label{
+	font-size 15px;
+}
+
+
 #header {
   background: rgb(255, 255, 255);
   padding: 1%;
@@ -74,11 +112,13 @@ h1 {
 .semitrans {
   background: rgba(255, 255, 255, .75);
   padding: 0 5%;
+  overflow: hidden;
 
 }
 
 .insidetext {
   color: #000;
+  padding: 0 5%;
 }
 
 .dark {
@@ -90,3 +130,33 @@ h1 {
 .nopadding {
   padding: 0;
 }
+
+.row:after {
+    padding: 0px;
+    content: "";
+    display: table;
+    clear: both;
+}
+.col {
+    float: left;
+    width: 33.33%%
+}
+
+#table input[type=text]{
+    float: left;
+    width: 100%%;
+    margin: 10px 20px 10px 0px;
+}
+
+#table input[type=number]{
+    float: left;
+    width: 100%%;
+    margin: 10px 20px 10px 0px;
+}
+
+#table label{
+    font-size: 15px;
+    float:left;
+    margin: 10px 20px 10px 0px;
+}
+

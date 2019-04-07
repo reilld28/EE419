@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/Example.css">
+<link rel="stylesheet" type="text/css" href="css/Example1.css">
 <meta charset="UTF-8">
 <title>Recipe Storage System</title>
+
+<script type="text/javascript">
+  function formvalidation() {
+		var a=document.forms["registerform"]["name"].value;
+	    var b=document.forms["registerform"]["email"].value;
+	    var c=document.forms["registerform"]["password"].value;
+	    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	    if (a==null || a=="",b==null || b=="",c==null || c==""){
+	        alert("Please Fill All Required Field");
+	        return false;
+	    }
+	    
+	    if(b.match(mailformat)){return true;}
+	    else
+	    {
+	    alert("You have entered an invalid email address!");
+	    return false;
+	    }
+	}
+ 
+</script>
+
 </head>
 <body>
 
@@ -18,16 +40,19 @@
       <li>Browse Recipes</li>
     </ul>
   </div>
-<div class = "white" > 
-<form method="post" action="./Register" name="loginform">
-	<h3>Register your name and email address</h3>
-  <div class="insidetext" >
-  <p>Please enter your full name: 
-  <input name="name" value="eg Mary Baker" type='text'></p>
-  <p>Please enter your email address: 
-  <input name="email" value ="eg marybaker@gmail.com" type='text'></p>
-  <p>Please enter your password: 
-  <input name="password" type='password'></p>
+<div class = "semitrans" > 
+<form method="post"  action = "./Register" onsubmit = "return formvalidation()" name ="registerform">
+	<h1>Register your name and email address</h1>
+  <div id="insidetext" >
+  <label>Please enter your full name: 
+  <br>
+  <input name="name" value="eg Mary Baker" type='text'></label>
+  <label>Please enter your email address: 
+  <br>
+  <input name="email" value ="eg marybaker@gmail.com" type='text'></label>
+  <label>Please enter your password: 
+  <br>
+  <input name="password" type='password'></label>
   </div>
   <input type="submit" value="Submit">
  </form>

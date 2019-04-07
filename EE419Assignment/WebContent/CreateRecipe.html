@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/Example1.css">
+<meta charset="UTF-8">
+<title>Recipe Storage System</title>
+
+<script type="text/javascript">
+  function formvalidation() {
+		var a=document.forms["createrecipe"]["name"].value;
+	    var b=document.forms["createrecipe"]["category"].value;
+	    var c=document.forms["createrecipe"]["preparation_time"].value;
+	    var d=document.forms["createrecipe"]["instructions"].value;
+	   
+	    if ((a==null || a=="",b==null || b=="",c==null || c=="",d==null || d=="")){
+	        alert("Please Fill All Required Field");
+	        return false;
+	    }
+	}
+ 
+</script>
+
+
+</head>
+<body>
+
+<div class="fullscreen nopadding"> <!--This div is for whole page-->
+  <div id="header">
+    <img src="http://stirfriedfables.com/wp-content/uploads/2015/05/stir-fried-fables-logo-250x250.png" />
+    <ul>
+      <li>Home</li>
+      <li>Login</li>
+      <li>Register</li>
+      <li>Create Recipe</li>
+      <li>Browse Recipes</li>
+    </ul>
+  </div>
+<div class = "semitrans" > 
+  <h1>Create your own 5 ingredient recipe!</h1>
+
+<form method="post" action="./CreateRecipe" name="createrecipe">
+  <div id="insidetext" >
+  <label>Enter Recipe name: 
+  <br>
+  <input name="name" type='text'></label>
+  <label>Type of category: 
+  <br>
+  <input name="category" type='text'></label>
+  <label>Preparation time in hours: 
+  <br>
+  <input name="preparation_time" type='number'></label>
+  <label>Instructions of recipe: 
+  <br>
+  <input name="instructions" type='text' height=40px></label>
+  <br>
+  </div>
+  <div id = "table">
+  	<div class="row">
+  		<div class = "col">
+  		<label for="ingredient1">Ingredient 1:</label>
+  		<input name="ingredient1" type='text' value = " ">
+  		<br>
+  		<label for="ingredient2">Ingredient 2:</label>
+  		<input name="ingredient2" type='text' value = " ">
+  		<br>
+  		<label for="ingredient3">Ingredient 3:</label>
+  		<input name="ingredient3" type='text' value = " ">
+  		<br>
+  		<label for="ingredient4">Ingredient 4:</label>
+  		<input name="ingredient4" type='text' value = " ">
+  		<br>
+  		<label for="ingredient5">Ingredient 5:</label>
+  		<input name="ingredient5" type='text' value = " ">
+  		
+  		</div>
+  		
+  		<div class = "col">
+  		<label for="quantity1">Quantity:</label>
+  		<input name="quantity1" type='number' step="any" value = 0>
+  		<br>
+  		<label for="quantity2">Quantity:</label>
+  		<input name="quantity2" type='number' step="any" value = 0>
+  		<br>
+  		<label for="quantity3">Quantity:</label>
+  		<input name="quantity3" type='number' step="any" value = 0>
+  		<br>
+  		<label for="quantity4">Quantity:</label>
+  		<input name="quantity4" type='number' step="any" value = 0>
+  		<br>
+  		<label for="quantity5">Quantity:</label>
+  		<input name="quantity5" type='number' step="any" value = 0>
+  		
+  		
+  		</div>
+  		
+  		<div class = "col" >
+  		<label for="unit1">Unit:</label>
+  		<input name="unit1" type='text' value = " ">
+  		<br>
+  		<label for="unit2">Unit:</label>
+  		<input name="unit2" type='text' value = " ">
+  		<br>
+  		<label for="unit3">Unit:</label>
+  		<input name="unit3" type='text' value = " ">
+  		<br>
+  		<label for="unit4">Unit:</label>
+  		<input name="unit4" type='text' value = " ">
+  		<br>
+  		<label for="unit5">Unit:</label>
+  		<input name="unit5" type='text' value = " ">
+  		
+  		</div>
+  		
+	</div>
+	</div>	
+ 
+
+  <input type="submit" value="Submit Recipe!">
+ </form>
+</div>
+</div>
+
+
+</body>
+</html>
