@@ -38,21 +38,30 @@ public class BrowseRecipe extends HttpServlet {
 	     		out.println("Connection Successful..... checking recipe details....");
       	  
       	        
-      	        /*String decision = request.getParameter("action");*/
-	     		String decision = "All Recipes";
+      	        String decision = request.getParameter("action");
 	     		
 	     		out.println("<table BORDER=1 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>"
 	     	              +"<tr><th>Name</th><th>Category</th><th>Instructions</th><th>Ingredients</th></tr>");
 	     		
       	        
-      	        if(decision == "All Recipes") {
+      	        if("All Recipes".equals(decision)) {
+      	        
       	        	String searchQuery ="select * from DRrecipes";
           	        stmt = con.createStatement();  
           	     	rs = stmt.executeQuery(searchQuery);
           	     	while (rs.next()) {
+    		
           	     		out.println("<tr><td><center>"+rs.getString("name")+"</center></td>"+ "<td><center>"+rs.getString("category")+"</center></td>"+ "<td><center>" + rs.getString("instructions") + "</center></td>"
-          	     				+ "<td><center>"+ rs.getString("ingredient1")+ ", " + rs.getString("ingredient2")+ "</center></td></tr>");
+          	     				+ "<td><center>" + rs.getString("quantity1") + " " + rs.getString("unit1")+ " " + rs.getString("ingredient1")
+          	     				+ "<br>" + rs.getString("quantity2") + " " + rs.getString("unit2")+ " " + rs.getString("ingredient2") 
+          	     				+ "<br>" + rs.getString("quantity3") + " " + rs.getString("unit3")+ " " + rs.getString("ingredient3")
+          	     				+ "<br>" + rs.getString("quantity4") + " " + rs.getString("unit4")+ " "  + rs.getString("ingredient4") 
+          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</center></td></tr>");
           	     	}
+      	        }
+      	        
+      	        else {
+      	        	System.out.println("I'm here instead");
       	        }
       	      out.println("</table>");
       	        
