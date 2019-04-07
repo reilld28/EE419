@@ -18,7 +18,7 @@ div {
 
 a {
   color: #0645AD;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 p {
@@ -89,6 +89,14 @@ input[type=submit]{
   float: left;
   margin-left: 20px;
   font-size: 15px;
+}
+
+#header li a{
+	color: #FF8C00;	
+}
+
+#header a:hover {
+  color: red;
 }
 
 .fullscreen {

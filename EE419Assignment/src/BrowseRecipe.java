@@ -60,8 +60,48 @@ public class BrowseRecipe extends HttpServlet {
           	     	}
       	        }
       	        
-      	        else {
-      	        	System.out.println("I'm here instead");
+      	        else if ("Search".equals(decision)){
+      	        	String keyword = request.getParameter("keyword");
+      	        	String keyword1 = keyword.toUpperCase();
+      	        	System.out.println(keyword1);
+      	        	String searchQuery ="select * from DRrecipes WHERE  UPPER(name) LIKE '%" +  keyword1 + "%' OR UPPER(ingredient1) LIKE '%"+ keyword1 
+      	        			+ "%' OR UPPER(ingredient2) LIKE '%" + keyword1 + "%' OR UPPER(ingredient3) LIKE '%" + keyword1 + "%' OR UPPER(ingredient4) LIKE '%"
+      	        			+ keyword1 + "%' OR UPPER(ingredient5) LIKE '%" + keyword1 + "%'";
+      	        	System.out.println(searchQuery);
+          	        stmt = con.createStatement();  
+          	     	rs = stmt.executeQuery(searchQuery);
+          	     	while (rs.next()) {
+          	    		
+          	     		out.println("<tr><td><center>"+rs.getString("name")+"</center></td>"+ "<td><center>"+rs.getString("category")+"</center></td>"+ "<td><center>" + rs.getString("instructions") + "</center></td>"
+          	     				+ "<td><center>" + rs.getString("quantity1") + " " + rs.getString("unit1")+ " " + rs.getString("ingredient1")
+          	     				+ "<br>" + rs.getString("quantity2") + " " + rs.getString("unit2")+ " " + rs.getString("ingredient2") 
+          	     				+ "<br>" + rs.getString("quantity3") + " " + rs.getString("unit3")+ " " + rs.getString("ingredient3")
+          	     				+ "<br>" + rs.getString("quantity4") + " " + rs.getString("unit4")+ " "  + rs.getString("ingredient4") 
+          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</center></td></tr>");
+          	     	}
+          	     	
+      	        }
+      	        
+      	        else if ("Category".equals(decision)) {
+      	        	System.out.println("I'm here");
+      	        	
+      	        	String cat = request.getParameter("Category");
+      	        	String cat1 = cat.toUpperCase();
+      	        	System.out.println(cat);
+      	        	String searchQuery ="select * from DRrecipes WHERE  UPPER(Category) LIKE '%" +  cat1 + "%'";
+      	        	System.out.println(searchQuery);
+          	        stmt = con.createStatement();  
+          	     	rs = stmt.executeQuery(searchQuery);
+          	     	while (rs.next()) {
+          	    		
+          	     		out.println("<tr><td><center>"+rs.getString("name")+"</center></td>"+ "<td><center>"+rs.getString("category")+"</center></td>"+ "<td><center>" + rs.getString("instructions") + "</center></td>"
+          	     				+ "<td><center>" + rs.getString("quantity1") + " " + rs.getString("unit1")+ " " + rs.getString("ingredient1")
+          	     				+ "<br>" + rs.getString("quantity2") + " " + rs.getString("unit2")+ " " + rs.getString("ingredient2") 
+          	     				+ "<br>" + rs.getString("quantity3") + " " + rs.getString("unit3")+ " " + rs.getString("ingredient3")
+          	     				+ "<br>" + rs.getString("quantity4") + " " + rs.getString("unit4")+ " "  + rs.getString("ingredient4") 
+          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</center></td></tr>");
+          	     	}
+      	        	
       	        }
       	      out.println("</table>");
       	        
