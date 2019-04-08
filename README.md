@@ -69,4 +69,6 @@ Servlets/HTML files and their associated servlets:
 	<br>Register.html -> RegisterServlet.java
 	<br>BrowseRecipe.html -> BrowseRecipe.java
 	<br>CreateRecipe.html -> CreateRecipe.java
-
+<div align="center">
+    <img src="/Users/michaelreilly/git/repository/EE419Assignment/WebContent/Images/Diagram.png" </img> 
+</div>
