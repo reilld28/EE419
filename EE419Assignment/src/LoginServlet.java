@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
              		
          	}
          	catch (Exception e) {
-             		out.println("An error has occurred during the connection phase! Did you upload your Oracle Drivers?"); 
+             		System.out.println("An error has occurred during the connection phase! Did you upload your Oracle Drivers?"); 
          	}   
 
  	 	try {
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 	     		System.out.println("<BR> THis is my select statement" + searchQuery );
 	     		
 	     		if(!more) {
-	      	    out.println("<BR>Error!");  //error page 
+	      	    System.out.println("<BR>Error!");  //error page 
 	      	    user.setValid(false);
 	     			
 	     		}
@@ -70,11 +70,14 @@ public class LoginServlet extends HttpServlet {
       	 	        
       	           HttpSession session = request.getSession(true);	    
       	           session.setAttribute("currentSessionUser",user); 
-      	           out.println("<H1 align= center style= color:white; margin-top: 50% >Welcome "+ user.getname() + "! Enjoy the site! </H1>" ); //logged-in page      		
+      	           out.println("<center><H1 style= color:white; margin-top: 50% >Welcome "+ user.getname() + "! Enjoy the site! </H1></center>" ); //logged-in page  
+         	       out.println("<center><a style= color:white; href=Recipe_homepage.html>Click Here to Return Home</a></center>");
+
       	      }
       	 	        
       	      else {
       	    	out.println("<H1 align= center style= color:white; margin-top: 50% >User details not valid. Please try again</H1>");  //error page 
+      	    	out.println("<center><a style= color:white; href=Login.html>Click Here to Try Again</a></center>");
       	 } 
 	     				
 	 	}

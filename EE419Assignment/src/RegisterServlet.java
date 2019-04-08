@@ -63,9 +63,13 @@ public class RegisterServlet extends HttpServlet {
 	     		int row = st.executeUpdate();
 	     		if(row==1) {
 	     			out.println("<H1 align= center style= color:white; margin-top:20%>Registration Successful! Welcome " + user.getname() + "!</H1>");
+	         	    out.println("<center><a style= color:white; href=Recipe_homepage.html>Click Here to Return Home</a></center>");
+
 	     		}
 	     		else {
 	     			out.println("<H1 align= center style= color:white; margin-top:20%>Please check your details and try again</H1>");
+	         	    out.println("<center><a style= color:white; href=Register.html>Click Here to Try Again</a></center>");
+
 	     		}
 	     				
 	 	}

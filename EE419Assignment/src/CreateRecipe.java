@@ -24,7 +24,7 @@ public class CreateRecipe extends HttpServlet {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY background= https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg ><H1 style= color:orange;top:200px >Created Recipe!</H1>");
+                out.println("<BODY background= https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg ><H1 align= center style= color:white; margin-top:20% >Saving Recipe....</H1>");
 
 		// Now we add our database code!
 		try {
@@ -86,11 +86,15 @@ public class CreateRecipe extends HttpServlet {
 	     		/*System.out.println("\n The values are: " + quantity1 + quantity2 + quantity3 +quantity4 +quantity5);*/
 	     		int row = st.executeUpdate();
 	     		if(row==1) {
-	     			out.println("<H1 style= color:orange; top:200px;>Recipe Saved Successful!</H1>");
+	     			out.println("<center><H1 style= color:white; margin-top:20% >Recipe Successfully Saved!</H1></center>");
+	         	    out.println("<center><a style= color:white; href=Recipe_homepage.html>Click Here to Return Home</a></center>");
+
 
 	     		}
 	     		else {
 	     			out.println("Please check your details and try again");
+	         	    out.println("<center><a style= color:white; href=Recipe_homepage.html>Click Here to Return Home</a></center>");
+
 	     		}
 	     				
 	 	}

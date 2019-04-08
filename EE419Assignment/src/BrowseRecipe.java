@@ -103,6 +103,8 @@ public class BrowseRecipe extends HttpServlet {
       	        	
       	        }
       	      out.println("</table>");
+    	      out.println("<center><a style= color:white; href=Recipe_homepage.html>Click Here to Return Home</a></center>");
+
       	        
       	        	     		
 	     				

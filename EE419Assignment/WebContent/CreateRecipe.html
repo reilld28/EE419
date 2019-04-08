@@ -12,9 +12,12 @@
 	    var c=document.forms["createrecipe"]["preparation_time"].value;
 	    var d=document.forms["createrecipe"]["instructions"].value;
 	   
-	    if ((a==null || a=="",b==null || b=="",c==null || c=="",d==null || d=="")){
+	    if ((a == 0 || b== 0 || c== 0 || d == 0)){
 	        alert("Please Fill All Required Field");
 	        return false;
+	    }
+	    else{
+	    	return true;
 	    }
 	}
  
@@ -38,7 +41,7 @@
 <div class = "semitrans" > 
   <h1>Create your own 5 ingredient recipe!</h1>
 
-<form method="post" action="./CreateRecipe" name="createrecipe">
+<form method="post" action="./CreateRecipe" name="createrecipe" onsubmit = "return formvalidation()">
   <div id="insidetext" >
   <label>Enter Recipe name: 
   <br>
