@@ -2,7 +2,7 @@
 Deirdre Reilly EE417: WebApplication Project Report 
 Deirdre Reilly - 11304481
 
-Recipe Storage System
+# Recipe Storage System
 I was randomly assigned the "Recipe Storage System"". My application can register new users, login users, create recipes, and browse exisiting recipes.
 
 Creating User Database:  
@@ -32,7 +32,7 @@ quantity5 number(5),
 recipe_id number(5)
 )					        
    
-The Web Application Design
+# The Web Application Design
 The home page of my application is the first page the user sees that gives them an introduction to the website and allows them to navigate to the other functions of the website.
 
 The first step is to login to the system if they are an existing user.A servlet checks if the entered user details match any records in the SQL database. If the users details are found in the table, the user gets a message to say the login details are correct. The user can click to go back to the home page of the website.A HTTP session is created and assigned to the logged in user.
