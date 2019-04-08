@@ -78,6 +78,8 @@ public class LoginServlet extends HttpServlet {
       	      else {
       	    	out.println("<H1 align= center style= color:white; margin-top: 50% >User details not valid. Please try again</H1>");  //error page 
       	    	out.println("<center><a style= color:white; href=Login.html>Click Here to Try Again</a></center>");
+      	    	out.println("<center><a style= color:white; href=Register.html>OR here to register</a></center>");
+
       	 } 
 	     				
 	 	}
