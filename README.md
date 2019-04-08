@@ -5,7 +5,9 @@ Deirdre Reilly - 11304481
 # Recipe Storage System
 I was randomly assigned the "Recipe Storage System"". My application can register new users, login users, create recipes, and browse exisiting recipes.
 
-Creating User Database:  
+#Creating User Database:  
+
+Sample login details 'joeblogs@hotmail.com' password 'password'
 CREATE TABLE DRusers (
 accountId INTEGER NOT NULL UNIQUE, 
 name varchar(30),
@@ -14,7 +16,7 @@ password varchar(30),
 PRIMARY KEY (accountId)
 )
 
-Creating Recipes Database:
+#Creating Recipes Database:
 CREATE TABLE DRrecipes (name varchar(100),
 category varchar(50),
 preparation_time number(5),
