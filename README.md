@@ -56,7 +56,7 @@ When registering a new user there is a check to ensure there are no blank fields
 When creating a recipe there is another validation check to ensure the four mandatory fields are not blank.
 	
 	
-Future Improvements
+#Future Improvements
 The project can expanded in the following ways:<br> The recipe table could contain a field that lists the user that created the recipe.
 This could be used so the user could then filter to only recipes they have created. This would also create a link between the two tables (users and recipes).
 A new field in the recipes table could be added for privacy. When the user is creating a recipe they could tick a box if they wish their recipe to be public. This would create a privacy option for the user. This would be stored as a boolean value in the table </p>
