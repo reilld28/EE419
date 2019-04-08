@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY><H1>Registering new User....</H1>");
+                out.println("<BODY background= https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg><H1 align= center style= color:white; margin-top:20% >Registering New User....</H1>");
 
 		// Now we add our database code!
 		try {
@@ -34,15 +34,15 @@ public class RegisterServlet extends HttpServlet {
              		con = DriverManager.getConnection(JDBCUrl, username, password);
              		user.setemail(request.getParameter("email"));
           	        user.setPassword(request.getParameter("password"));
-          	        user.setemail(request.getParameter("name"));
+          	        user.setname(request.getParameter("name"));
              
          	}
          	catch (Exception e) {
-             		out.println("An error has occurred during the connection phase! Did you upload your Oracle Drivers?"); 
+             		System.out.println("An error has occurred during the connection phase! Did you upload your Oracle Drivers?"); 
          	}   
 
  	 	try {
-	     		out.println("Connection Successful..... creating statement....");
+	     		System.out.println("Connection Successful..... creating statement....");
       	     	stmt = con.createStatement();
 	     		PreparedStatement st = con.prepareStatement("INSERT INTO DRusers (accountid,name,email,password) VALUES (?,?,?,?)");
       
@@ -62,10 +62,10 @@ public class RegisterServlet extends HttpServlet {
 	     		System.out.println("\n The name is " + name + " the email is " + email + "the password is " + password);
 	     		int row = st.executeUpdate();
 	     		if(row==1) {
-	     			out.println("Registration Successful!");
+	     			out.println("<H1 align= center style= color:white; margin-top:20%>Registration Successful! Welcome " + user.getname() + "!</H1>");
 	     		}
 	     		else {
-	     			out.println("Please check your details and try again");
+	     			out.println("<H1 align= center style= color:white; margin-top:20%>Please check your details and try again</H1>");
 	     		}
 	     				
 	 	}

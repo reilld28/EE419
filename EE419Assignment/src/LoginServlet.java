@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY><H1>Checking Login Details....</H1>");
+                out.println("<BODY background= https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg><H1 align= center style= color:white; margin-top:20%; >Checking Login Details....</H1>");
 
 		// Now we add our database code!
 		try {
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
          	}   
 
  	 	try {
-	     		out.println("Connection Successful..... checking login details....");
+	     		System.out.println("Connection Successful..... checking login details....");
       	  
       	        
       	        String email = request.getParameter("emailaddress");
@@ -59,8 +59,10 @@ public class LoginServlet extends HttpServlet {
 	     		else if(more) {
 	     			String emailaccount = rs.getString("email");
 	     			String emailpassword = rs.getString("password");
+	     			String name = rs.getString("name");
 	     			user.setemail(emailaccount);
 	     			user.setPassword(emailpassword);
+	     			user.setname(name);
 	     			user.setValid(true);
 	     		}
       	     	if (user.isValid())
@@ -68,16 +70,16 @@ public class LoginServlet extends HttpServlet {
       	 	        
       	           HttpSession session = request.getSession(true);	    
       	           session.setAttribute("currentSessionUser",user); 
-      	           out.println("<BR>Successfull login"); //logged-in page      		
+      	           out.println("<H1 align= center style= color:white; margin-top: 50% >Welcome "+ user.getname() + "! Enjoy the site! </H1>" ); //logged-in page      		
       	      }
       	 	        
       	      else {
-      	    	out.println("<BR>User details not valid. Please try again");  //error page 
+      	    	out.println("<H1 align= center style= color:white; margin-top: 50% >User details not valid. Please try again</H1>");  //error page 
       	 } 
 	     				
 	 	}
         catch (Exception e) {
-	     		out.println("<BR>An error has occurred during the Statement/ResultSet phase.  Please check the syntax and study the Exception details!");
+	     		System.out.println("<BR>An error has occurred during the Statement/ResultSet phase.  Please check the syntax and study the Exception details!");
 	    }   
          	
 		finally {

@@ -21,7 +21,8 @@ public class BrowseRecipe extends HttpServlet {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY><H1>Recipes in Database</H1>");
+                out.println("<BODY background= https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg><H1 align= center style= color:white; margin-top:20% >Recipes</H1>");
+
 
 		// Now we add our database code!
 		try {
@@ -35,12 +36,12 @@ public class BrowseRecipe extends HttpServlet {
          	}   
 
  	 	try {
-	     		out.println("Connection Successful..... checking recipe details....");
+	     		System.out.println("Connection Successful..... checking recipe details....");
       	  
       	        
       	        String decision = request.getParameter("action");
 	     		
-	     		out.println("<table BORDER=1 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>"
+	     		out.println("<table BORDER=1 BORDERCOLOR = ORANGE CELLPADDING=0 CELLSPACING=0 WIDTH=100% bgcolor=#FFFFFF>"
 	     	              +"<tr><th>Name</th><th>Category</th><th>Instructions</th><th>Ingredients</th></tr>");
 	     		
       	        
@@ -51,12 +52,12 @@ public class BrowseRecipe extends HttpServlet {
           	     	rs = stmt.executeQuery(searchQuery);
           	     	while (rs.next()) {
     		
-          	     		out.println("<tr><td><center>"+rs.getString("name")+"</center></td>"+ "<td><center>"+rs.getString("category")+"</center></td>"+ "<td><center>" + rs.getString("instructions") + "</center></td>"
+          	     		out.println("<tr><td>"+rs.getString("name")+"</td>"+ "<td>"+rs.getString("category")+"</td>"+ "<td width=30%>" + rs.getString("instructions") + "</td>"
           	     				+ "<td><center>" + rs.getString("quantity1") + " " + rs.getString("unit1")+ " " + rs.getString("ingredient1")
           	     				+ "<br>" + rs.getString("quantity2") + " " + rs.getString("unit2")+ " " + rs.getString("ingredient2") 
           	     				+ "<br>" + rs.getString("quantity3") + " " + rs.getString("unit3")+ " " + rs.getString("ingredient3")
           	     				+ "<br>" + rs.getString("quantity4") + " " + rs.getString("unit4")+ " "  + rs.getString("ingredient4") 
-          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</center></td></tr>");
+          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</td></tr>");
           	     	}
       	        }
       	        
@@ -72,13 +73,12 @@ public class BrowseRecipe extends HttpServlet {
           	     	rs = stmt.executeQuery(searchQuery);
           	     	while (rs.next()) {
           	    		
-          	     		out.println("<tr><td><center>"+rs.getString("name")+"</center></td>"+ "<td><center>"+rs.getString("category")+"</center></td>"+ "<td><center>" + rs.getString("instructions") + "</center></td>"
+          	     		out.println("<tr><td>"+rs.getString("name")+"</td>"+ "<td>"+rs.getString("category")+"</td>"+ "<td width=30%>" + rs.getString("instructions") + "</td>"
           	     				+ "<td><center>" + rs.getString("quantity1") + " " + rs.getString("unit1")+ " " + rs.getString("ingredient1")
           	     				+ "<br>" + rs.getString("quantity2") + " " + rs.getString("unit2")+ " " + rs.getString("ingredient2") 
           	     				+ "<br>" + rs.getString("quantity3") + " " + rs.getString("unit3")+ " " + rs.getString("ingredient3")
           	     				+ "<br>" + rs.getString("quantity4") + " " + rs.getString("unit4")+ " "  + rs.getString("ingredient4") 
-          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</center></td></tr>");
-          	     	}
+          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</td></tr>");}
           	     	
       	        }
       	        
@@ -94,13 +94,12 @@ public class BrowseRecipe extends HttpServlet {
           	     	rs = stmt.executeQuery(searchQuery);
           	     	while (rs.next()) {
           	    		
-          	     		out.println("<tr><td><center>"+rs.getString("name")+"</center></td>"+ "<td><center>"+rs.getString("category")+"</center></td>"+ "<td><center>" + rs.getString("instructions") + "</center></td>"
+          	     		out.println("<tr><td>"+rs.getString("name")+"</td>"+ "<td>"+rs.getString("category")+"</td>"+ "<td width=30%>" + rs.getString("instructions") + "</td>"
           	     				+ "<td><center>" + rs.getString("quantity1") + " " + rs.getString("unit1")+ " " + rs.getString("ingredient1")
           	     				+ "<br>" + rs.getString("quantity2") + " " + rs.getString("unit2")+ " " + rs.getString("ingredient2") 
           	     				+ "<br>" + rs.getString("quantity3") + " " + rs.getString("unit3")+ " " + rs.getString("ingredient3")
           	     				+ "<br>" + rs.getString("quantity4") + " " + rs.getString("unit4")+ " "  + rs.getString("ingredient4") 
-          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</center></td></tr>");
-          	     	}
+          	     				+ "<br>" + rs.getString("quantity5") + " " + rs.getString("unit5")+ " " + rs.getString("ingredient5") + "</td></tr>");}
       	        	
       	        }
       	      out.println("</table>");

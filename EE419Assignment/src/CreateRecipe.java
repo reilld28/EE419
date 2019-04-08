@@ -16,7 +16,7 @@ public class CreateRecipe extends HttpServlet {
 	String JDBCUrl = "jdbc:oracle:thin:@ee417.c7clh2c6565n.eu-west-1.rds.amazonaws.com:1521:EE417";
     String username = "ee_user";
     String password = "ee_pass";
-	UserBean user = new UserBean();
+	
 
   		
  	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -24,7 +24,7 @@ public class CreateRecipe extends HttpServlet {
         	response.setContentType("text/html");
     		PrintWriter out = response.getWriter();
                 out.println("<HTML><HEAD><TITLE>Database Servlet</TITLE></HEAD>");
-                out.println("<BODY><H1>Database Values</H1>");
+                out.println("<BODY background= https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80.jpeg ><H1 style= color:orange;top:200px >Created Recipe!</H1>");
 
 		// Now we add our database code!
 		try {
@@ -38,7 +38,7 @@ public class CreateRecipe extends HttpServlet {
          	}   
 
  	 	try {
-	     		out.println("Connection Successful..... creating statement....");
+	     		System.out.println("Connection Successful..... creating statement....");
       	     	stmt = con.createStatement();
 	     		PreparedStatement st = con.prepareStatement("INSERT INTO DRrecipes (name, category, preparation_time, instructions,ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,quantity1,quantity2,quantity3,quantity4,quantity5,unit1,unit2,unit3,unit4,unit5,recipe_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 	     		/*PreparedStatement st = con.prepareStatement("INSERT INTO DRrecipes (name, category, preparation_time, instructions, ingredient1,ingredient2,ingredient3,ingredient4,ingredient5, recipe_id) VALUES (?,?,?,?,?,?,?,?,?,?)");*/
@@ -86,7 +86,7 @@ public class CreateRecipe extends HttpServlet {
 	     		/*System.out.println("\n The values are: " + quantity1 + quantity2 + quantity3 +quantity4 +quantity5);*/
 	     		int row = st.executeUpdate();
 	     		if(row==1) {
-	     			out.println("Recipe Saved Successful!");
+	     			out.println("<H1 style= color:orange; top:200px;>Recipe Saved Successful!</H1>");
 
 	     		}
 	     		else {
